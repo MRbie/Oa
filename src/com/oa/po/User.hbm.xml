@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<!-- hibernate的实体类和数据表之间的映射 -->	
+<hibernate-mapping package="com.oa.po"> 
+	
+	<!-- 配置实体类和数据表之前的映射关系 -->
+	<class name="User" table="user">
+	
+		<!-- 配置实体类和数据表之间的主键之间的映射 -->
+		<id name="userId" column="userId">
+		
+			<!-- 设置主键自增 -->
+			<generator class="native"></generator>
+		</id>
+		
+		<!-- 设置实体类和数据表之间的非主键之间的映射 -->
+		<property name="userLoginName" length="20" column="userLoginName"></property>
+		<property name="userName" length="20" column="userName"></property>
+		<property name="userGender" column="userGender"></property>
+		<property name="userPhone" length="20" column="userPhone"></property>
+		<property name="userEmail" length="20" column="userEmail"></property>
+		<property name="userDescription" length="20" column="userDescription"></property>
+		<property name="userPassword" length="20" column="userPassword"></property>
+		
+		<!-- 
+			用户和部门之间的关系是多对一的关系 
+			private Department department;//用户所属部门
+			column的属性值是数据表外键字段名称
+		-->
+		<many-to-one name="department" class="Department" column="departmentId"></many-to-one>
+		
+		<!-- 
+			用户和角色之间的关系是多对多关系 
+			private Set<Role> roles = new HashSet<Role>();//
+		-->
+		<set name="roles" table="user_roles">
+			
+			<!-- column的属性值user表的主键字段 -->
+			<key column="userId"></key>
+			<many-to-many class="Role" column="roleId"></many-to-many>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>

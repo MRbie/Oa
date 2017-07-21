@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<!-- hibernate的实体类和数据表之间的映射 -->	
+<hibernate-mapping package="com.oa.po"> 
+
+	<!-- 配置实体类和数据表之前的映射关系 -->
+	<class name="Role" table="role">
+	
+		<!-- 配置一下主键的实体类和数据表之间的映射 -->
+		<id name="roleId" column="roleId">
+		
+			<!-- 主键自增 -->
+			<generator class="native"></generator>
+		</id>
+		
+		<!-- 配置一下非主键的实体类和数据表之间的映射 -->
+		<property name="roleName" length="20" column="roleName"></property>
+		<property name="roleDescription" length="200" column="roleDescription"></property>
+	
+		
+		<!-- 
+			角色和用户的多对多配置,多对多会生成第三张表 
+			name的属性值是实体类private Set<User> users = new HashSet<User>();的对象
+		-->
+		<set name="users" table="user_roles">
+			<key column="roleId"></key>
+			<many-to-many class="User" column="userId"></many-to-many>
+		</set>
+	</class>
+	
+
+</hibernate-mapping>

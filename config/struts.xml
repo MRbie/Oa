@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<!-- struts2的配置信息 -->
+<struts>
+	
+	<!-- 将对象工厂指定为spring -->	
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+	<!-- struts的Action的访问后缀,必须以.do结尾 -->
+	<constant name="struts.action.extension" value="do"></constant>
+	
+	<!-- 指定表单主题 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	
+   	<package name="default" namespace="/" extends="struts-default">
+   		
+   		<!-- 角色管理的Action-->
+   		<action name="role_*" class="roleAction" method="{1}">
+   			
+   			<!-- 角色管理查询操作  -->
+   			<result name="list">/view/role/role_list.jsp</result>
+   			
+   			<!-- 角色删除的方法 -->
+   			<result name="toList" type="redirectAction">
+   				<param name="actionName">role_list</param>
+   				<param name="namespace">/</param>
+   			</result>
+   			
+   			<!-- 根据角色编号查询角色信息的方法 -->
+   			<result name="updateUI">/view/role/role_updateUI.jsp</result>
+   			
+   			
+   		</action>
+   		
+   		<!-- 用户的action -->
+   		<action name="user_*" class="userAction" method="{1}">
+   			<!-- 显示用户列表的方法 -->
+   			<result name="list">/view/user/user_list.jsp</result>
+   			
+   			
+   		</action>
+   		
+   	</package>
+
+</struts>

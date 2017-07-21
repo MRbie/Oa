@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+<!-- hibernate的实体类和数据表之间的映射 -->	
+<hibernate-mapping package="com.oa.po"> 
+	
+	<!-- 配置实体类和数据表之间的映射 -->
+	<class name="Department" table="Department">
+		
+		<!-- 配置实体类和数据表之间的主键之间的映射 -->
+		<id column="departmentId" name="departmentId">
+			
+			<!-- 设置主键自增 -->
+			<generator class="native"></generator>
+		</id>
+		
+		<!-- 配置实体类和数据表之间的非主键之间的映射 -->
+		<property name="departmentName" length="20" column="departmentName"></property>
+		<property name="departmentDescription" length="200" column="departmentDescription"></property>
+		
+		<!-- 子部门和上级部门的多对一的关系,部门的自关联 -->
+		<many-to-one name="parent" class="Department" column="parentId"></many-to-one>
+		
+		<!-- 
+			上级部门和子部门的一对多的关系 
+			private Set<Department> children = new HashSet<Department>();//
+			
+		-->
+		<set name="children">
+			<key column="parentId"></key>
+			<one-to-many class="Department"/>
+		</set>
+		
+		<!-- 
+			部门和用户之间的一对多的关系,一对多的关系key的column属性值多的一方的外键
+			private Set<User> users = new HashSet<User>();
+		-->
+		<set name="users">
+			<key column="departmentId"></key>
+			<one-to-many class="User"/>
+		</set>
+		
+	</class>
+
+</hibernate-mapping>
