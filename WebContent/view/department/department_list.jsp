@@ -58,9 +58,9 @@
 			<tr class="TableDetail1 template" style="text-align: center;">
 				<td>${departmentId}&nbsp;</td>
 				<td>
-					<a href="${basePath }view/department/department_list_level2.jsp">
-						${departmentName}
-					</a>
+					<s:a action="department_list?parentId=%{ departmentId }" namespace="/">
+						<span style="text-decoration:underline">${departmentName}</span>
+					</s:a>
 					&nbsp;
 				</td>
 				<td>${parent.departmentName}&nbsp;</td>
@@ -80,8 +80,14 @@
         <div id="TableTail_inside">
             <%-- <a href="${basePath }view/department/department_saveUI.jsp"><img src="${basePath }resource/style/images/createNew.png" /></a> --%>
         
-        	<a href="${basePath }department_addUI.do"><img src="${basePath }resource/style/images/createNew.png" /></a>
-        </div>
+        	<s:a action="department_addUI.do?parentId=%{parentId}" namespace="/"><img src="${basePath }resource/style/images/createNew.png" /></s:a>
+    		
+        	<s:if test="parentId != null">
+    			<s:a action="department_list?parentId=%{departmentParent.parent.departmentId}">
+    		
+    				<img src="${basePath }resource/style/images/goBack.png"/>
+    			</s:a>
+    		</s:if>
     </div>
 </div>
 

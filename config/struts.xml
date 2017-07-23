@@ -54,7 +54,7 @@
    			
    			<!-- 部门新建，删除，按照编号查询的action -->
    			<result name="toList" type="redirectAction">
-   				<param name="actionName">department_list</param>
+   				<param name="actionName">department_list?parentId=${parentId}</param>
    				<param name="namespace">/</param>
    			</result>
    			

@@ -21,7 +21,7 @@
 		<property name="departmentDescription" length="200" column="departmentDescription"></property>
 		
 		<!-- 子部门和上级部门的多对一的关系,部门的自关联 -->
-		<many-to-one name="parent" class="Department" column="parentId"></many-to-one>
+		<many-to-one lazy="false" name="parent" class="Department" column="parentId"></many-to-one>
 		
 		<!-- 
 			上级部门和子部门的一对多的关系 

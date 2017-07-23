@@ -60,5 +60,22 @@ public class DepartmentServiceImpl implements DepartmentService{
 		return departmentDao.getById(departmentId);
 	}
 
+	@Override
+	public List<Department> findTopList() {
+		
+		List<Department> list = departmentDao.findTopList();
+		
+		return list;
+	}
+
+	@Override
+	public List<Department> findTopList(Long parentId) {
+		
+		//当顶级部门的编号不为空的时候
+		List<Department> list = departmentDao.findTopList(parentId);
+		
+		return list;
+	}
+
 	
 }

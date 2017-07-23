@@ -33,7 +33,22 @@ public class DepartmentAction extends BaseAction<Department>{
 
 	public String list(){
 		//调用业务逻辑层的查询所有信息的方法
-		List<Department> list = departmentService.findAll();
+		//List<Department> list = departmentService.findAll();
+		List<Department> list = null;
+		//部门管理，设计如何选择顶级部门和下级部门点进去查看的时候
+		if(parentId == null){
+			//如果父级部门编号为空，那么查询你顶级部门列表
+			list =  departmentService.findTopList();
+		}else{
+			//如果父级部门编号不为空，那么查询子部门列表
+			list = departmentService.findTopList(parentId);
+			
+			//返回上一级的设计
+			Department departmentParent = departmentService.getById(parentId);
+		
+			//压栈操作
+			getValueStack().set("departmentParent", departmentParent);
+		}
 		
 		//ctrl+1 获得值栈
 		ValueStack valueStack = getValueStack();

@@ -42,4 +42,17 @@ public interface DepartmentService {
 	 * @return
 	 */
 	public Department getById(long departmentId);
+
+	/***
+	 * 查询顶级部门信息的方法
+	 * @return
+	 */
+	public List<Department> findTopList();
+
+	/**
+	 * 当有顶级部门的时候，查询出所属的顶级部门信息
+	 * @param parentId
+	 * @return
+	 */
+	public List<Department> findTopList(Long parentId);
 }
