@@ -5,6 +5,7 @@ import java.lang.reflect.Type;
 
 import javax.annotation.Resource;
 
+import com.oa.service.DepartmentService;
 import com.oa.service.RoleService;
 import com.oa.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
@@ -33,6 +34,10 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 	@Resource
 	public UserService userService;
 
+	//将部门的service注入到ioc容器中
+	@Resource
+	public DepartmentService departmentService;
+	
 	//构造方法
 	public BaseAction(){
 		//获取到BaseAction的这个名称

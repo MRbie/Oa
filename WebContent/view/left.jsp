@@ -20,7 +20,7 @@
 <body style="margin: 0">
 <div id="Menu">
     <ul id="MenuUl">
-        <li class="level1">
+        <li class="level1" style="color: red;">
             <div onClick="menuClick(this)" class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC20001.gif" class="Icon" />个人办公</div>
             <ul style="display: none;" class="MenuLevel2">
                 <li class="level2">
@@ -40,7 +40,7 @@
                 </li>
             </ul>
         </li>
-        <li class="level1">
+        <li class="level1" style="color: red;">
             <div onClick="menuClick(this);" class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC20057.gif" class="Icon" /> 审批流转</div>
             <ul style="display: none;" class="MenuLevel2">
                 <li class="level2">
@@ -68,7 +68,7 @@
 		-->
             </ul>
         </li>
-        <li class="level1">
+        <li class="level1" style="color: red;">
             <div onClick="menuClick(this);" class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC20064.gif" class="Icon" /> 网上交流</div>
             <ul style="display: none;" class="MenuLevel2">
                 <li class="level2">
@@ -94,10 +94,10 @@
                 </li>
             </ul>
         </li>
-        <li class="level1">
+        <li class="level1" style="color: red;">
             <div class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC20056.gif" class="Icon" /> <a target="right" href="LanDisk_Folder/list.html">知识管理</a></div>
         </li>
-        <li class="level1">
+        <li class="level1" style="color: red;">
             <div onClick="menuClick(this);" class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC20070.gif" class="Icon" /> 综合行政</div>
             <ul style="display: none;" class="MenuLevel2">
                 <li class="level2">
@@ -131,7 +131,7 @@
                 </li>
             </ul>
         </li>
-        <li class="level1">
+        <li class="level1" style="color: red;" >
             <div onClick="menuClick(this);" class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC261000.gif" class="Icon" /> 人力资源</div>
             <ul style="display: none;" class="MenuLevel2">
                 <li class="level2">
@@ -154,7 +154,7 @@
                 </li>
             </ul>
         </li>
-        <li class="level1">
+        <li class="level1" style="color: red;">
             <div onClick="menuClick(this);" class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC20076.gif" class="Icon" /> 实用工具</div>
             <ul style="display: none;" class="MenuLevel2">
                 <li class="level2">
@@ -174,7 +174,7 @@
                 </li>
             </ul>
         </li>
-        <li class="level1">
+        <li class="level1" style="color: red;">
             <div onClick="menuClick(this);" class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC20077.gif" class="Icon" /> 个人设置</div>
             <ul style="display: none;" class="MenuLevel2">
                 <li class="level2">
@@ -188,14 +188,14 @@
                 </li>-->
             </ul>
         </li>
-        <li class="level1">
+        <li class="level1" style="color: red;">
             <div onClick="menuClick(this);" class="level1Style"><img src="${basePath }resource/style/images/MenuIcon/FUNC20082.gif" class="Icon" /> 系统管理</div>
             <ul style="display: none;" class="MenuLevel2">
                 <li class="level2">
-                    <div class="level2Style"><img src="${basePath }resource/style/images/MenuIcon/menu_arrow_single.gif" /> <a target="right" href="view/department/department_list.jsp"> 岗位管理</a></div>
+                    <div class="level2Style"><img src="${basePath }resource/style/images/MenuIcon/menu_arrow_single.gif" /> <a target="right" href="role_list.do"> 岗位管理</a></div>
                 </li>
                 <li class="level2">
-                    <div class="level2Style"><img src="${basePath }resource/style/images/MenuIcon/menu_arrow_single.gif" /> <a target="right" href="role_list.do"> 部门管理</a></div>
+                    <div class="level2Style"><img src="${basePath }resource/style/images/MenuIcon/menu_arrow_single.gif" /> <a target="right" href="department_list.do"> 部门管理</a></div>
                 </li>
                 <li class="level2">
                     <div class="level2Style"><img src="${basePath }resource/style/images/MenuIcon/menu_arrow_single.gif" /> <a target="right" href="user_list.do"> 用户管理</a></div>

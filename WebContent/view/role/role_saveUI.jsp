@@ -37,40 +37,27 @@
 <!--显示表单内容-->
 <div id=MainArea>
     <s:form action="role_save" method="post" namespace="/">
-        <div class="ItemBlock_Title1">
-        	<!-- 信息说明<DIV CLASS="ItemBlock_Title1">
-        	<IMG BORDER="0" WIDTH="4" HEIGHT="7" SRC="resource/style/blue/images/item_point.gif" /> 部门信息 </DIV>  
-        	 -->
+        <div class="ItemBlock_Title1"><!-- 信息说明<DIV CLASS="ItemBlock_Title1">
+        	<IMG BORDER="0" WIDTH="4" HEIGHT="7" SRC="../style/blue/images/item_point.gif" /> 岗位信息 </DIV>  -->
         </div>
         
         <!-- 表单内容显示 -->
         <div class="ItemBlockBorder">
             <div class="ItemBlock">
                 <table cellpadding="0" cellspacing="0" class="mainForm">
-                    <tr><td width="100">上级部门</td>
-                        <td><select name="parentId" class="SelectStyle">
-                                <option value="0" selected="selected">请选择部门</option>
-                                <option value="7">┠总经理室</option>
-                                <option value="1">┠市场部</option>
-                                <option value="2">　┠咨询部</option>
-                                <option value="3">　┠招生部</option>
-                                <option value="4">┠教学部</option>
-                                <option value="5">┠后勤部</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr><td>部门名称</td>
-                        <td>
-                        	<!-- <input type="text" name="name" class="InputStyle"/> * -->
-                        	<s:textfield name="roleName" cssClass="InputStyle"></s:textfield>
-                        	
-                        </td>
-                    </tr>
-                    <tr><td>职能说明</td>
+                    <tr>
+                        <td width="100">岗位名称</td>
                         <td>
                         
+                        	<!-- <input type="text" name="name" class="InputStyle" /> --> 
+                        	<s:textfield name="roleName" cssClass="InputStyle"></s:textfield>	
+                        *</td>
+                    </tr>
+                    <tr>
+                        <td>岗位说明</td>
+                        <td>
                         	<!-- <textarea name="description" class="TextareaStyle"></textarea> -->
-                        	<s:textarea name="roleDescription" cssClass="TextareaStyle"></s:textarea>	
+                        	<s:textarea name="roleDescription" cssClass="TextareaStyle"></s:textarea>
                         </td>
                     </tr>
                 </table>
@@ -85,11 +72,6 @@
     </s:form>
 </div>
 
-<div class="Description">
-	说明：<br />
-	1，上级部门的列表是有层次结构的（树形）。<br/>
-	2，如果是修改：上级部门列表中不能显示当前修改的部门及其子孙部门。因为不能选择自已或自已的子部门作为上级部门。<br />
-</div>
 
 </body>
 </html>

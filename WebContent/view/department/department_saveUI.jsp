@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>    
 <%
 	//获取绝对路径路径 ,开发项目一定要使用绝对路径，不然肯定出错
 	String path = request.getContextPath();
@@ -37,7 +38,7 @@
 
 <!--显示表单内容-->
 <div id=MainArea>
-    <form action="list.html">
+    <s:form action="department_save.do" namespace="/" method="post">		
         <div class="ItemBlock_Title1"><!-- 信息说明<DIV CLASS="ItemBlock_Title1">
         	<IMG BORDER="0" WIDTH="4" HEIGHT="7" SRC="${basePath }resource/style/blue/images/item_point.gif" /> 部门信息 </DIV>  -->
         </div>
@@ -46,8 +47,10 @@
         <div class="ItemBlockBorder">
             <div class="ItemBlock">
                 <table cellpadding="0" cellspacing="0" class="mainForm">
+                    
                     <tr><td width="100">上级部门</td>
-                        <td><select name="parentId" class="SelectStyle">
+                        <td>
+                        	<%-- <select name="parentId" class="SelectStyle">
                                 <option value="0" selected="selected">请选择部门</option>
                                 <option value="7">┠总经理室</option>
                                 <option value="1">┠市场部</option>
@@ -55,24 +58,34 @@
                                 <option value="3">　┠招生部</option>
                                 <option value="4">┠教学部</option>
                                 <option value="5">┠后勤部</option>
-                            </select>
+                            </select> --%>
+                            
+                            <s:select name="parentId" list="list" listKey="departmentId" listValue="departmentName" headerKey="" headerValue="请选择部门" cssClass="SelectStyle"></s:select>
                         </td>
                     </tr>
+                   
                     <tr><td>部门名称</td>
-                        <td><input type="text" name="name" class="InputStyle"/> *</td>
+                        <td>
+                        	<!-- <input type="text" name="name" class="InputStyle"/>  -->
+                        	<s:textfield name="departmentName" cssClass="InputStyle"></s:textfield>
+                        *</td>
                     </tr>
                     <tr><td>职能说明</td>
-                        <td><textarea name="description" class="TextareaStyle"></textarea></td>
+                        <td>
+                        	<!-- <textarea name="description" class="TextareaStyle"></textarea> -->
+                        	
+                        	<s:textarea name="departmentDescription" cssClass="TextareaStyle"></s:textarea>	
+                        </td>
                     </tr>
                 </table>
             </div>
-        
+        </div>
         <!-- 表单操作 -->
         <div id="InputDetailBar">
             <input type="image" src="${basePath }resource/style/images/save.png"/>
             <a href="javascript:history.go(-1);"><img src="${basePath }resource/style/images/goBack.png"/></a>
         </div>
-    </form>
+    </s:form>
 </div>
 
 <div class="Description">
@@ -83,3 +96,8 @@
 
 </body>
 </html>
+
+
+
+
+

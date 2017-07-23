@@ -47,11 +47,11 @@ A:hover {
 
 #Info {
 	padding-left: 20px;
-	padding-top: 6px;
+	padding-top: 2px;
 	color: #a9dcff;
 	font-family: "ËÎÌו";
-	font-size: 12px;
-	float: left;
+	font-size: 14px;
+	float: center;
 }
 
 #TryoutInfo {

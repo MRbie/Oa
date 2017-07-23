@@ -24,7 +24,8 @@
    			<!-- 角色管理查询操作  -->
    			<result name="list">/view/role/role_list.jsp</result>
    			
-   			<!-- 角色删除的方法 -->
+   			
+   			<!-- 角色删除和新建的方法 -->
    			<result name="toList" type="redirectAction">
    				<param name="actionName">role_list</param>
    				<param name="namespace">/</param>
@@ -43,6 +44,24 @@
    			
    			
    		</action>
+   		
+   		<!-- 部门管理的action -->
+   		<action name="department_*" class="departmentAction" method="{1}">
+   			<!-- 返回查询的所有结果 -->
+   			<result name="list">/view/department/department_list.jsp</result>
+   			
+   			<result name="addUI">/view/department/department_saveUI.jsp</result>
+   			
+   			<!-- 部门新建，删除，按照编号查询的action -->
+   			<result name="toList" type="redirectAction">
+   				<param name="actionName">department_list</param>
+   				<param name="namespace">/</param>
+   			</result>
+   			
+   			<!-- 获取到对象以后返回到修改的页面 -->
+   			<result name="updateUI">/view/department/department_updateUI.jsp</result>
+   		</action>
+   		
    		
    	</package>
 
