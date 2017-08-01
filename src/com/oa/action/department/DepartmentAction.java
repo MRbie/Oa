@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import com.oa.base.impl.BaseAction;
 import com.oa.po.Department;
+import com.oa.utils.DepartmentUtils;
 import com.opensymphony.xwork2.util.ValueStack;
 
 /** 
@@ -63,13 +64,17 @@ public class DepartmentAction extends BaseAction<Department>{
 	
 	public String addUI(){
 		//调用业务逻辑层的查询所有信息的方法
-		List<Department> list = departmentService.findAll();
+		//List<Department> list = departmentService.findAll();
+		
+		//所有的顶级部门列表
+		List<Department> topList = departmentService.findTopList();
+		List<Department> treeList = DepartmentUtils.getTreeList(topList, null);
 		
 		//获取值栈
 		ValueStack valueStack = getValueStack();		
 		
 		//压栈操作，这样可以获取到部门信息
-		valueStack.set("list", list);
+		valueStack.set("list", treeList);
 				
 		return "addUI";
 	}
@@ -138,13 +143,16 @@ public class DepartmentAction extends BaseAction<Department>{
 		
 		
 		//准备数据，调用业务逻辑层的查询所有信息的方法
-		List<Department> list = departmentService.findAll();
-		
+		//List<Department> list = departmentService.findAll();
+		//所有的顶级部门列表
+		List<Department> topList = departmentService.findTopList();
+		List<Department> treeList = DepartmentUtils.getTreeList(topList, department.getDepartmentId());
+				
 		//获取值栈
 		ValueStack valueStackSelect = getValueStack();		
 		
 		//压栈操作，这样可以获取到部门信息
-		valueStackSelect.set("list", list);
+		valueStackSelect.set("list", treeList);
 		
 		if(department.getParent() != null){
 			//将上级部门设计一下,这样将父级部门放到值栈中
