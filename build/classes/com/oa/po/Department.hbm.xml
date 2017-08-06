@@ -28,7 +28,7 @@
 			private Set<Department> children = new HashSet<Department>();//
 			
 		-->
-		<set name="children" cascade="delete">
+		<set name="children" lazy="false" cascade="delete">
 			<key column="parentId"></key>
 			<one-to-many class="Department"/>
 		</set>
