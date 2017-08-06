@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	//获取绝对路径路径 ,开发项目一定要使用绝对路径，不然肯定出错
 	String path = request.getContextPath();
@@ -37,7 +38,7 @@
 
 <!--显示表单内容-->
 <div id=MainArea>
-    <form action="list.html">
+    <s:form action="list.html">
         <div class="ItemBlock_Title1"><!-- 信息说明 --><div class="ItemBlock_Title1">
         	<img border="0" width="4" height="7" src="${basePath }resource/style/blue/images/item_point.gif" /> 用户信息 </div> 
         </div>
@@ -47,7 +48,9 @@
             <div class="ItemBlock">
                 <table cellpadding="0" cellspacing="0" class="mainForm">
                     <tr><td width="100">所属部门</td>
-                        <td><select name="departmentId" class="SelectStyle">
+                        <td>
+                        	<%-- 
+                        	<select name="departmentId" class="SelectStyle">
                                 <option value="0" selected="selected">请选择部门</option>
                                 <option value="7">┠总经理室</option>
                                 <option value="1">┠市场部</option>
@@ -56,29 +59,32 @@
                                 <option value="4">┠教学部</option>
                                 <option value="5">┠后勤部</option>
                             </select> 
+                            --%>
+                            
+                            <s:select name="parentId" list="treeList" listKey="departmentId" listValue="departmentName" headerKey="" headerValue="请选择部门" cssClass="SelectStyle"></s:select> 
                         </td>
                     </tr>
                     <tr><td>登录名</td>
-                        <td><input type="text" name="loginName" class="InputStyle"/> *
+                        <td><input type="text" name="userLoginName" class="InputStyle"/> *
 							（登录名要唯一）
 						</td>
                     </tr>
                     <tr><td>姓名</td>
-                        <td><input type="text" name="name" class="InputStyle"/> *</td>
+                        <td><input type="text" name="userName" class="InputStyle"/> *</td>
                     </tr>
 					<tr><td>性别</td>
-                        <td><input type="RADIO" name="sex" value="男" id="male"/><label for="male">男</label>
-							<input type="RADIO" name="sex" value="女" id="female"/><label for="female">女</label>
+                        <td><input type="RADIO" name="userGender" value="男" id="male"/><label for="male">男</label>
+							<input type="RADIO" name="userGender" value="女" id="female"/><label for="female">女</label>
 						</td>
                     </tr>
 					<tr><td>联系电话</td>
-                        <td><input type="text" name="phoneNumber" class="InputStyle"/></td>
+                        <td><input type="text" name="userPhone" class="InputStyle"/></td>
                     </tr>
                     <tr><td>E-mail</td>
-                        <td><input type="text" name="email" class="InputStyle"/></td>
+                        <td><input type="text" name="userEmail" class="InputStyle"/></td>
                     </tr>
                     <tr><td>备注</td>
-                        <td><textarea name="description" class="TextareaStyle"></textarea></td>
+                        <td><textarea name="userDescription" class="TextareaStyle"></textarea></td>
                     </tr>
                 </table>
             </div>
@@ -94,14 +100,20 @@
                 <table cellpadding="0" cellspacing="0" class="mainForm">
                     <tr>
 						<td width="100">岗位</td>
-                        <td><select name="roleIdList" multiple="true" size="10" class="SelectStyle">
+                        <td>
+                        	<%-- 
+                        	<select name="roleIdList" multiple="true" size="10" class="SelectStyle">
                                 <option value="1">程序员</option>
                                 <option value="2">行政秘书</option>
                                 <option value="3">出纳</option>
                                 <option value="4">总经理</option>
                                 <option value="5">测试员</option>
-                            </select>
-                            按住Ctrl键可以多选或取消选择
+                            </select> 
+                            --%>
+                            <s:iterator value="roleList">
+                            	${roleName }
+                            </s:iterator>
+                                                               按住Ctrl键可以多选或取消选择
                         </td>
                     </tr>
                 </table>
@@ -113,7 +125,7 @@
             <input type="image" src="${basePath }resource/style/images/save.png"/>
             <a href="javascript:history.go(-1);"><img src="${basePath }resource/style/images/goBack.png"/></a>
         </div>
-    </form>
+    </s:form>
 </div>
 
 <div class="Description">

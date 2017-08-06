@@ -42,7 +42,17 @@
    			<!-- 显示用户列表的方法 -->
    			<result name="list">/view/user/user_list.jsp</result>
    			
+   			<!-- 用户删除和新建的操作 -->
+   			<result name="toList" type="redirectAction">
+   				<param name="actionName">user_list</param>
+   				<param name="namespace">/</param>
+   			</result>
    			
+   			<!-- 根据编号查询出用户的信息 -->
+   			<result name="updateUi">/view/user/user_updateUI.jsp</result>
+   			
+   			<!-- 跳转到用户新建的页面 -->
+   			<result name="addUI">/view/user/user_saveUI.jsp</result>
    		</action>
    		
    		<!-- 部门管理的action -->

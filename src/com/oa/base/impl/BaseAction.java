@@ -39,6 +39,7 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T>{
 	public DepartmentService departmentService;
 	
 	//构造方法
+	@SuppressWarnings("unchecked")
 	public BaseAction(){
 		//获取到BaseAction的这个名称
 		ParameterizedType genericSuperclass = (ParameterizedType) this.getClass().getGenericSuperclass();

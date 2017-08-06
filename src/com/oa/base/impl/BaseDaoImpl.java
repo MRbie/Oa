@@ -27,6 +27,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	
 	private Class<T> clazz;
 	
+	@SuppressWarnings("unchecked")
 	public BaseDaoImpl() {
 		//获得实体类型
 		//this.getClass();这个获得的是子类的名称
@@ -64,6 +65,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		sessionFactory.getCurrentSession().update(entity);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T getById(Long id) {
 		//根据编号进行查询信息
@@ -72,6 +74,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	}
 
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> findAll() {
 		//查询所有
@@ -82,6 +85,7 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		return sessionFactory.getCurrentSession().createQuery(hql).list();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<T> getByIds(Long[] ids) {
 		//一次查询多个信息

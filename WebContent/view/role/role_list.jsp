@@ -33,6 +33,8 @@
     
     <script type="text/javascript">
     </script>
+    
+    
 </head>
 <body>
  
@@ -52,6 +54,7 @@
         <!-- 表头-->
         <thead>
             <tr align="CENTER" valign="MIDDLE" id="TableTitle">
+            	<td width="200px">岗位编号</td>
             	<td width="200px">岗位名称</td>
                 <td width="300px">岗位说明</td>
                 <td>相关操作</td>
